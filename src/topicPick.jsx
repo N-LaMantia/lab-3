@@ -1,5 +1,6 @@
 //imports
 import calcQ from './data/calculusQ.json'
+import algebraQ from './data/algebraQ.json'
 import './topicPick.css';
 
 //MATH SUBJECTS
@@ -17,9 +18,23 @@ function CalculusQuiz() {
 }
 function AlgebraQuiz() {
     console.log("Algebra Quiz selected.");
+    return (
+        <>
+            <div className="alg-quiz-container">
+                <h1>{algebraQ.title}</h1>
+            </div>
+        </>
+    )
 }
 function GeometryQuiz() {
     console.log("Geometry Quiz selected.");
+    return (
+        <>
+            <div className="geo-quiz-container">
+                <h1>Geometry Quiz</h1>
+            </div>
+        </>
+    )
 }
 export { CalculusQuiz };
 export { AlgebraQuiz };

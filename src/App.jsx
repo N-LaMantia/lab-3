@@ -5,6 +5,8 @@ import { historyButtonClick } from './genTopics';
 import { scienceButtonClick } from './genTopics';
 import { literatureButtonClick } from './genTopics';
 import { CalculusQuiz } from './topicPick.jsx';
+import { AlgebraQuiz } from './topicPick.jsx';
+import { GeometryQuiz } from './topicPick.jsx';
 
 
 
@@ -17,8 +19,8 @@ function App() {
 
   //state variables to track which specific topic buttons have been clicked
   const [viewCalculusQuiz, setViewCalculusQuiz] = useState(false)
-  //const [viewAlgebraQuiz, setViewAlgebraQuiz] = useState(false)
-  //const [viewGeometryQuiz, setViewGeometryQuiz] = useState(false)
+  const [viewAlgebraQuiz, setViewAlgebraQuiz] = useState(false)
+  const [viewGeometryQuiz, setViewGeometryQuiz] = useState(false)
 
   // const [viewCanadaHistoryQuiz, setViewCanadaHistoryQuiz] = useState(false)
   // const [viewUSAHistoryQuiz, setViewUSAHistoryQuiz] = useState(false)
@@ -71,8 +73,22 @@ function App() {
   function handleCalculusClick() {
     CalculusQuiz();
     setViewCalculusQuiz(true);
-    // setViewAlgebraQuiz(false);
-    // setViewGeometryQuiz(false);
+    setViewAlgebraQuiz(false);
+    setViewGeometryQuiz(false);
+  }
+
+  function handleAlgebraClick() {
+    AlgebraQuiz();
+    setViewAlgebraQuiz(true);
+    setViewCalculusQuiz(false);
+    setViewGeometryQuiz(false);
+  }
+
+  function handleGeometryClick() {
+    GeometryQuiz();
+    setViewGeometryQuiz(true);
+    setViewCalculusQuiz(false);
+    setViewAlgebraQuiz(false);
   }
 
 
@@ -97,9 +113,9 @@ function App() {
 
             <button className="Calculus Quiz" onClick={handleCalculusClick}>Calculus</button>
 
-            <button className="Algebra Quiz">Algebra</button>
+            <button className="Algebra Quiz" onClick={handleAlgebraClick}>Algebra</button>
 
-            <button className="Geometry Quiz">Geometry</button>
+            <button className="Geometry Quiz" onClick={handleGeometryClick}>Geometry</button>
           </div >
         </>
       )}
@@ -144,7 +160,18 @@ function App() {
           <CalculusQuiz />
         </>
       )}
-    </>
+      {viewAlgebraQuiz && (
+        <>
+          <AlgebraQuiz />
+        </>
+      )}
+      {viewGeometryQuiz && (
+        <>
+          <GeometryQuiz />
+        </>
+      )}
+
+    </> //return end tag
   )
 }
 
