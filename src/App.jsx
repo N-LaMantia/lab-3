@@ -4,13 +4,34 @@ import { mathButtonClick } from './genTopics';
 import { historyButtonClick } from './genTopics';
 import { scienceButtonClick } from './genTopics';
 import { literatureButtonClick } from './genTopics';
+import { CalculusQuiz } from './topicPick.jsx';
+
 
 
 function App() {
+  //state variables to track which topic buttons have been clicked 
   const [viewMathTopics, setViewMathTopics] = useState(false)
   const [viewHistoryTopics, setViewHistoryTopics] = useState(false)
   const [viewScienceTopics, setViewScienceTopics] = useState(false)
   const [viewLiteratureTopics, setViewLiteratureTopics] = useState(false)
+
+  //state variables to track which specific topic buttons have been clicked
+  const [viewCalculusQuiz, setViewCalculusQuiz] = useState(false)
+  //const [viewAlgebraQuiz, setViewAlgebraQuiz] = useState(false)
+  //const [viewGeometryQuiz, setViewGeometryQuiz] = useState(false)
+
+  // const [viewCanadaHistoryQuiz, setViewCanadaHistoryQuiz] = useState(false)
+  // const [viewUSAHistoryQuiz, setViewUSAHistoryQuiz] = useState(false)
+  // const [viewJapanHistoryQuiz, setViewJapanHistoryQuiz] = useState(false)
+
+  // const [viewPhysicsQuiz, setViewPhysicsQuiz] = useState(false)
+  // const [viewChemistryQuiz, setViewChemistryQuiz] = useState(false)
+  // const [viewBiologyQuiz, setViewBiologyQuiz] = useState(false)
+
+  // const [viewPoetryQuiz, setViewPoetryQuiz] = useState(false)
+  // const [viewNovelQuiz, setViewNovelQuiz] = useState(false)
+  // const [viewPlayQuiz, setViewPlayQuiz] = useState(false)
+
 
 
   //functions to handle general button clicks 
@@ -46,6 +67,14 @@ function App() {
     setViewScienceTopics(false);
   }
 
+  //functions to handle specific topic button clicks
+  function handleCalculusClick() {
+    CalculusQuiz();
+    setViewCalculusQuiz(true);
+    // setViewAlgebraQuiz(false);
+    // setViewGeometryQuiz(false);
+  }
+
 
   //RETURN STATEMENT
   return (
@@ -66,7 +95,7 @@ function App() {
           <br></br>
           <div className="math-topic-container">
 
-            <button className="Calculus Quiz">Calculus</button>
+            <button className="Calculus Quiz" onClick={handleCalculusClick}>Calculus</button>
 
             <button className="Algebra Quiz">Algebra</button>
 
@@ -108,6 +137,11 @@ function App() {
             <button className="Novel Quiz">Novels</button>
             <button className="Play Quiz">Plays</button>
           </div >
+        </>
+      )}
+      {viewCalculusQuiz && (
+        <>
+          <CalculusQuiz />
         </>
       )}
     </>
