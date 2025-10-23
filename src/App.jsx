@@ -66,7 +66,7 @@ function App() {
           <br></br>
           <div className="math-topic-container">
 
-            <button className="Calculus Quiz">Math</button>
+            <button className="Calculus Quiz">Calculus</button>
 
             <button className="Algebra Quiz">Algebra</button>
 
@@ -80,9 +80,9 @@ function App() {
           <br></br>
           <br></br>
           <div className="history-topic-container">
-            <button className="Canada History Quiz">Ancient History</button>
-            <button className="USA History Quiz">Medieval History</button>
-            <button className="Japan History Quiz">Modern History</button>
+            <button className="Canada History Quiz">Canadian History</button>
+            <button className="USA History Quiz">USA History</button>
+            <button className="Japan History Quiz">Japan History</button>
           </div >
         </>
       )}
@@ -106,7 +106,7 @@ function App() {
           <div className="literature-topic-container">
             <button className="Poetry Quiz">Poetry</button>
             <button className="Novel Quiz">Novels</button>
-            <button className="Play Quiz">Drama</button>
+            <button className="Play Quiz">Plays</button>
           </div >
         </>
       )}
