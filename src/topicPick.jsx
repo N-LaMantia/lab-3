@@ -1,31 +1,45 @@
 //imports
-import calcQ from './data/calculusQ.json'
-import algebraQ from './data/algebraQ.json'
+import { useState, useEffect } from 'react';
 import './topicPick.css';
+import { readJsonFile } from './fileReader.js';
 
 //MATH SUBJECTS
 
 function CalculusQuiz() {
-    console.log("Calculus Quiz selected.");
+    const [quizData, setQuizData] = useState(null);
+
+    useEffect(() => {
+        readJsonFile('public/calculusQ.json').then(data => {
+            setQuizData(data);
+        });
+    }, []);
     return (
-        <>
-            <div className="calc-quiz-container">
-                <h1>{calcQ.title}</h1>
-            </div>
-        </>
-    )
+        console.log(quizData),
+        <div className="calc-quiz-container">
+            <h3>{quizData ? quizData.title : 'Loading...'}</h3>
+
+        </div>
+    );
 
 }
+
+
 function AlgebraQuiz() {
-    console.log("Algebra Quiz selected.");
+    const [quizData, setQuizData] = useState(null);
+
+    useEffect(() => {
+        readJsonFile('algebraQ.json').then(data => {
+            setQuizData(data);
+        });
+    }, []);
+
     return (
-        <>
-            <div className="alg-quiz-container">
-                <h1>{algebraQ.title}</h1>
-            </div>
-        </>
-    )
+        <div className="alg-quiz-container">
+            <h1>{quizData ? quizData.title : 'Loading...'}</h1>
+        </div>
+    );
 }
+
 function GeometryQuiz() {
     console.log("Geometry Quiz selected.");
     return (

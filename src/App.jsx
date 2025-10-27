@@ -38,7 +38,6 @@ function App() {
 
   //functions to handle general button clicks 
   function handleMathClick() {
-    mathButtonClick();
     setViewMathTopics(true);
     setViewHistoryTopics(false);
     setViewScienceTopics(false);
@@ -46,7 +45,6 @@ function App() {
   }
 
   function handleHistoryClick() {
-    historyButtonClick();
     setViewHistoryTopics(true);
     setViewMathTopics(false);
     setViewScienceTopics(false);
@@ -54,7 +52,6 @@ function App() {
   }
 
   function handleScienceClick() {
-    scienceButtonClick();
     setViewScienceTopics(true);
     setViewMathTopics(false);
     setViewHistoryTopics(false);
@@ -62,7 +59,6 @@ function App() {
   }
 
   function handleLiteratureClick() {
-    literatureButtonClick();
     setViewLiteratureTopics(true);
     setViewMathTopics(false);
     setViewHistoryTopics(false);
@@ -71,21 +67,18 @@ function App() {
 
   //functions to handle specific topic button clicks
   function handleCalculusClick() {
-    CalculusQuiz();
     setViewCalculusQuiz(true);
     setViewAlgebraQuiz(false);
     setViewGeometryQuiz(false);
   }
 
   function handleAlgebraClick() {
-    AlgebraQuiz();
     setViewAlgebraQuiz(true);
     setViewCalculusQuiz(false);
     setViewGeometryQuiz(false);
   }
 
   function handleGeometryClick() {
-    GeometryQuiz();
     setViewGeometryQuiz(true);
     setViewCalculusQuiz(false);
     setViewAlgebraQuiz(false);
