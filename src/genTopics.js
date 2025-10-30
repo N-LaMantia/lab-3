@@ -19,6 +19,7 @@ function literatureButtonClick() {
     console.log("Literature button was clicked.");
 }
 
+
 export { literatureButtonClick };
 export { scienceButtonClick };
 export { mathButtonClick };
