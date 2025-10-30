@@ -1,7 +1,6 @@
 //imports 
 import { useState, useEffect } from 'react';
 import './topicPick.css';
-import { readJsonFile } from './fileReader.js';
 
 //MATH SUBJECTS --------------------------------------------------------------
 
@@ -10,11 +9,15 @@ function CalculusQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('calculusQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/calculus')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
-
     // Helper to render a question with options and answer (function inside function!)
     // qIdx = question index
     // q = question object
@@ -63,9 +66,14 @@ function AlgebraQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('algebraQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/algebra')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -114,9 +122,14 @@ function GeometryQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('geometryQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/geometry')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -167,9 +180,14 @@ function CanadaHistoryQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('canadaHistoryQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/canada')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
 
@@ -194,7 +212,6 @@ function CanadaHistoryQuiz() {
         </div>
     );
 
-    console.log("Canada History Quiz selected.");
     return (
         <div className="canada-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -217,12 +234,16 @@ function UsaHistoryQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('usHistoryQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/us')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
-    console.log("USA History Quiz selected.");
     const renderQuestion = (q, qIdx) => (
         <div key={qIdx}>
             <h3>{q.question}</h3>
@@ -265,9 +286,14 @@ function JapanHistoryQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('japanHistoryQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/japan')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -290,7 +316,6 @@ function JapanHistoryQuiz() {
             )}
         </div>
     );
-    console.log("Japan History Quiz selected.");
     return (
         <div className="japan-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -318,9 +343,14 @@ function PhysicsQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('physics.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/physics')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -344,7 +374,6 @@ function PhysicsQuiz() {
         </div>
     );
 
-    console.log("Physics Quiz selected.");
     return (
         <div className="physics-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -367,9 +396,14 @@ function ChemistryQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('chemistry.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/chemistry')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -393,7 +427,6 @@ function ChemistryQuiz() {
         </div>
     );
 
-    console.log("Chemistry Quiz selected.");
     return (
         <div className="chemistry-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -415,9 +448,14 @@ function BiologyQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('biologyQ.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/biology')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -441,7 +479,6 @@ function BiologyQuiz() {
         </div>
     );
 
-    console.log("Biology Quiz selected.");
     return (
         <div className="biology-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -469,9 +506,14 @@ function PoetryQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('poetry.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/poetry')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -495,7 +537,6 @@ function PoetryQuiz() {
         </div>
     );
 
-    console.log("Poetry Quiz selected.");
     return (
         <div className="poetry-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -519,9 +560,14 @@ function NovelQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('novels.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/novels')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -545,7 +591,6 @@ function NovelQuiz() {
         </div>
     );
 
-    console.log("Novel Quiz selected.");
     return (
         <div className="novels-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
@@ -568,9 +613,14 @@ function PlayQuiz() {
     const [selected, setSelected] = useState({ questionIndex: null, option: null });
 
     useEffect(() => {
-        readJsonFile('plays.json').then(data => {
-            setQuizData(data);
-        });
+        try {
+            fetch('/api/quiz/plays')
+                .then(res => res.json())
+                .then(data => setQuizData(data))
+        }
+        catch {
+            console.log("Something went wrong. Not fetching.")
+        }
     }, []);
 
     const renderQuestion = (q, qIdx) => (
@@ -594,7 +644,6 @@ function PlayQuiz() {
         </div>
     );
 
-    console.log("Play Quiz selected.");
     return (
         <div className="plays-quiz-container">
             <h3>{quizData ? quizData.title : 'Loading...'}</h3>
